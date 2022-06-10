@@ -1,0 +1,50 @@
+<div class="core-dialog">
+  <h2 mat-dialog-title>Add new link to core database</h2>
+  <div mat-dialog-content>
+    <form [formGroup]="formGroup">
+      <mat-form-field class="field">
+        <mat-label>Status</mat-label>
+        <mat-select formControlName="status">
+          <mat-option [value]="status.Active"> Active </mat-option>
+          <mat-option [value]="status.Waiting"> Waiting </mat-option>
+          <mat-option [value]="status.Blocked"> Blocked </mat-option>
+          <mat-option [value]="status.NotWorked"> Not Worked </mat-option>
+          <mat-option [value]="status.NotActive"> Not Active </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="field">
+        <mat-label>Link type</mat-label>
+        <mat-select formControlName="linkType">
+          <mat-option [value]="linkType['Do-follow']"> Do-follow </mat-option>
+          <mat-option [value]="linkType['No-follow']"> No-follow </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="field">
+        <mat-label>Base URL</mat-label>
+        <input matInput formControlName="baseURL" />
+      </mat-form-field>
+      <mat-form-field class="field">
+        <mat-label>Example URL</mat-label>
+        <input matInput formControlName="exampleURL" />
+      </mat-form-field>
+      <mat-checkbox class="field" formControlName="registerNeeded"
+        >Registration needed</mat-checkbox
+      >
+      <mat-form-field *ngIf="getControl('registerNeeded').value" class="field">
+        <mat-label>Login</mat-label>
+        <input matInput formControlName="login" />
+      </mat-form-field>
+      <mat-form-field *ngIf="getControl('registerNeeded').value" class="field">
+        <mat-label>Password</mat-label>
+        <input matInput formControlName="password" />
+      </mat-form-field>
+    </form>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button color="primary" (click)="save()" cdkFocusInitial>
+      Ok
+    </button>
+
+    <button mat-button (click)="close()">No Thanks</button>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+.login-form {
+  display: flex;
+  flex-direction: column;
+
+  &__input {
+    margin-bottom: 10px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

@@ -1,0 +1,22 @@
+<div class="core-dialog">
+  <h2 mat-dialog-title>Make link as not active</h2>
+  <div mat-dialog-content>
+    <form [formGroup]="formGroup">
+      <mat-form-field class="field">
+        <mat-label>Base URL</mat-label>
+        <input matInput formControlName="baseURL" />
+      </mat-form-field>
+      <mat-form-field class="field comment-area">
+        <mat-label>Comment</mat-label>
+        <textarea matInput formControlName="comment"></textarea>
+      </mat-form-field>
+    </form>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button color="primary" (click)="save()" cdkFocusInitial>
+      Ok
+    </button>
+
+    <button mat-button (click)="close()">No Thanks</button>
+  </div>
+</div>

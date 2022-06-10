@@ -1,0 +1,30 @@
+<div class="wrapper">
+  <div class="research">
+    <mat-form-field class="research__field" appearance="fill">
+      <mat-label>Paste new links to threads here</mat-label>
+      <textarea [formControl]="linkControl" matInput></textarea>
+    </mat-form-field>
+    <button mat-raised-button (click)="findLinks()" class="research__find">
+      Find new
+    </button>
+    <div *ngIf="showInfo">
+      <p class="research__status-text">
+        We found new links which needed to be evaluated.
+        {{ blockedCount }} blocked, {{ coreCount }} already in Core
+      </p>
+      <mat-divider *ngIf="showTool"></mat-divider>
+      <div *ngIf="showTool" class="research__link-info">
+        <p class="">Can you open and make possible placment in this website?</p>
+        <a href="{{ neededLink }}" target="_blanc">{{ neededLink }}</a>
+        <div class="research__link-buttons">
+          <button mat-raised-button color="primary" (click)="coreLink()">
+            Yes - Core database
+          </button>
+          <button mat-raised-button color="warn" (click)="blockLink()">
+            No - Blocker
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

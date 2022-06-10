@@ -1,0 +1,16 @@
+<div class="wrapper">
+  <app-statistic-diagram
+    *ngIf="multiComments && usersWriter"
+    yAxisLabel="Count of comments"
+    [multi]="multiComments"
+    [users]="usersWriter"
+    title="Comments statistic"
+  ></app-statistic-diagram>
+  <app-statistic-diagram
+    *ngIf="multiCore && usersResearch"
+    yAxisLabel="Count of core"
+    [multi]="multiCore"
+    [users]="usersResearch"
+    title="Core statistic"
+  ></app-statistic-diagram>
+</div>

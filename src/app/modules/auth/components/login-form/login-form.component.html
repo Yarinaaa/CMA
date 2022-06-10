@@ -1,0 +1,42 @@
+<form class="login-form" [formGroup]="formGroup">
+  <mat-form-field class="login-form__input">
+    <mat-label>Email</mat-label>
+    <input
+      (keyup.enter)="submit()"
+      formControlName="email"
+      matInput
+      type="email"
+    />
+    <mat-error
+      *ngIf="
+        getControl('email').hasError('email') &&
+        !getControl('email').hasError('required')
+      "
+    >
+      Please enter a valid email address
+    </mat-error>
+    <mat-error *ngIf="getControl('email').hasError('required')">
+      Email is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="login-form__input">
+    <mat-label>Password</mat-label>
+    <input
+      (keyup.enter)="submit()"
+      formControlName="password"
+      matInput
+      type="password"
+    />
+    <mat-error
+      *ngIf="
+        getControl('password').hasError('minlength') &&
+        !getControl('password').hasError('required')
+      "
+    >
+      Password length must be 6
+    </mat-error>
+    <mat-error *ngIf="getControl('password').hasError('required')">
+      Password is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+</form>

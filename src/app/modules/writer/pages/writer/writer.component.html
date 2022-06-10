@@ -1,0 +1,96 @@
+<div class="wrapper">
+  <div class="writer">
+    <mat-table [dataSource]="dataSource" class="writer__table mat-elevation-z8">
+      <ng-container matColumnDef="baseURL">
+        <mat-header-cell *matHeaderCellDef>Domain</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{ element.baseURL }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="exampleURL">
+        <mat-header-cell *matHeaderCellDef>Example URL</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{ element.exampleURL }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="credits">
+        <mat-header-cell *matHeaderCellDef>Login/Password</mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <span
+            *ngIf="
+              element.registerNeeded &&
+                element.status !== 'No registration needed' &&
+                element.login &&
+                element.password;
+              else elseLogin
+            "
+          >
+            {{ element.login }}<br />{{ element.password }}</span
+          >
+          <ng-template #elseLogin>NO</ng-template>
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="comments">
+        <mat-header-cell *matHeaderCellDef>Total comments</mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          {{ element.comments.length }}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="lastComment">
+        <mat-header-cell *matHeaderCellDef>Last comment date</mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <span *ngIf="!element.comments.length">Never</span>
+          <span *ngIf="element.comments.length">{{
+            element.lastCommentUpdate | date: "dd.MM.yyyy"
+          }}</span>
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <mat-header-cell class="cell__action" *matHeaderCellDef
+          >Action</mat-header-cell
+        >
+        <mat-cell class="cell__action" *matCellDef="let element">
+          <div class="writer__table-action">
+            <button
+              (click)="openAddComment(element)"
+              mat-raised-button
+              color="primary"
+            >
+              Apply comment
+            </button>
+            <button
+              (click)="makeWarmed(element)"
+              mat-raised-button
+              color="primary"
+            >
+              No need to warm
+            </button>
+            <button
+              mat-raised-button
+              color="primary"
+              (click)="notActive(element)"
+            >
+              Not active
+            </button>
+          </div>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    </mat-table>
+    <mat-paginator
+      [length]="100"
+      [pageSize]="25"
+      [pageSizeOptions]="[10, 25, 50, 100]"
+      aria-label="Select page"
+    >
+    </mat-paginator>
+    <mat-icon
+      class="writer__info"
+      matTooltip="Here we are displaying the domains which needs to be warmed. Status=Active, isWarmed=False, Last comments > 7 days"
+      >info</mat-icon
+    >
+  </div>
+</div>

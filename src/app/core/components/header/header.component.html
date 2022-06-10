@@ -1,0 +1,29 @@
+<mat-toolbar color="primary">
+  <div class="header">
+    <div class="header__list">
+      <h1>CMA</h1>
+      <div>
+        <a *ngIf="isResearcher" mat-button routerLink="/research">Research</a>
+        <a *ngIf="isResearcher" mat-button routerLink="/research/core">Core List</a>
+        <a *ngIf="isResearcher" mat-button routerLink="/research/statistic"
+          >Statistic</a
+        >
+        <a *ngIf="isWriter" mat-button routerLink="/writer">Warm</a>
+        <a *ngIf="isWriter" mat-button routerLink="/writer/core">Core</a>
+        <a *ngIf="isWriter" mat-button routerLink="/writer/place">Place</a>
+        <a *ngIf="isWriter" mat-button routerLink="/writer/statistic"
+          >Statistic</a
+        >
+        <a *ngIf="isAdmin" mat-button routerLink="/admin/core">Core</a>
+        <a *ngIf="isAdmin" mat-button routerLink="/admin/blockers">Blockers</a>
+        <a *ngIf="isAdmin" mat-button routerLink="/admin/comments">Comments</a>
+        <a *ngIf="isAdmin" mat-button routerLink="/admin/users">Users</a>
+        <a *ngIf="isAdmin" mat-button routerLink="/admin/statistic"
+          >Statistic</a
+        >
+      </div>
+    </div>
+
+    <button mat-button *ngIf="isLogged" (click)="logout()">Logout</button>
+  </div>
+</mat-toolbar>

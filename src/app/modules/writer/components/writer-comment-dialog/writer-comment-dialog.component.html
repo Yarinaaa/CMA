@@ -1,0 +1,26 @@
+<div class="core-dialog">
+  <h2 mat-dialog-title>Add new comment</h2>
+  <div mat-dialog-content>
+    <form [formGroup]="formGroup">
+      <mat-form-field class="field">
+        <mat-label>Domain</mat-label>
+        <input matInput formControlName="domain" />
+      </mat-form-field>
+      <mat-form-field class="field">
+        <mat-label>URL to placement</mat-label>
+        <input matInput formControlName="URL" />
+      </mat-form-field>
+      <mat-form-field class="field comment-area">
+        <mat-label>Text to placement</mat-label>
+        <textarea matInput formControlName="text"></textarea>
+      </mat-form-field>
+    </form>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button color="primary" (click)="save()" cdkFocusInitial>
+      Ok
+    </button>
+
+    <button mat-button (click)="close()">Cancel</button>
+  </div>
+</div>

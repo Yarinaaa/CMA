@@ -1,0 +1,52 @@
+.wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 40px 0;
+
+  & .page {
+    width: 1200px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    &__add-button {
+      align-self: flex-end;
+      margin-bottom: 15px;
+    }
+
+    &__table {
+      width: 100%;
+
+      & .mat-cell,
+      & .mat-header-cell {
+        vertical-align: middle;
+        padding: 0 8px;
+
+        &:first-child {
+          padding-left: 24px;
+        }
+
+        &:last-child {
+          padding-right: 24px;
+        }
+      }
+
+      & .cdk-column-actions {
+        justify-content: flex-end;
+      }
+    }
+
+    &__table-action {
+      padding: 8px 0;
+
+      & button {
+        margin-bottom: 8px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  &__list {
+    display: flex;
+    align-items: center;
+
+    h1 {
+      margin-right: 15px;
+    }
+  }
+}

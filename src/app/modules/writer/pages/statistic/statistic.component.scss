@@ -1,0 +1,19 @@
+.wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 40px 0;
+}
+
+.statistic {
+  width: 1200px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  &__header {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+}

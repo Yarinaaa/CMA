@@ -1,0 +1,35 @@
+.statistic {
+  width: 1200px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  &__header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &-end {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+
+  &__title {
+    font-size: 24px;
+    font-weight: 500;
+  }
+
+  & .field {
+    margin-right: 15px;
+
+    &:last-child {
+      margin-right: 0px;
+    }
+
+    &.select {
+      width: 270px;
+    }
+  }
+}

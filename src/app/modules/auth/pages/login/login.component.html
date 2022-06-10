@@ -1,0 +1,9 @@
+<div class="login">
+  <mat-card>
+    <mat-card-title>Login</mat-card-title>
+    <mat-card-content>
+      <app-login-form #loginForm (onFormSubmit)="login($event)"></app-login-form>
+      <button mat-raised-button color="primary" (click)="loginFormClick()">Login</button>
+    </mat-card-content>
+  </mat-card>
+</div>

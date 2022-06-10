@@ -1,0 +1,59 @@
+.wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 40px 0;
+
+  & .research {
+    width: 900px;
+
+    &__field {
+      width: 100%;
+      $textareaHeight: 400px;
+      height: $textareaHeight;
+
+      ::ng-deep {
+        .mat-form-field-wrapper,
+        .mat-form-field-flex,
+        .mat-form-field-infix {
+          height: 100%;
+        }
+        textarea {
+          height: 100%;
+          resize: none;
+        }
+      }
+    }
+
+    &__find {
+      margin-bottom: 20px;
+    }
+
+    &__status-text {
+      margin-bottom: 20px;
+    }
+
+    &__link-info {
+      margin-top: 20px;
+
+      & p {
+        margin-bottom: 20px;
+      }
+
+      & a {
+        display: block;
+        margin-bottom: 20px;
+      }
+    }
+
+    &__link-buttons {
+      & button {
+        margin-right: 10px;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
